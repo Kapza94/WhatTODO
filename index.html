@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhatTODO</title>
+</head>
+
+<body>
+    <h1>WhatTODO</h1>
+    <p>Keeping your priorities simple and effective.</p>
+
+    <form id="formSubmit" onsubmit="addTODO(event)">
+        <label for="TODOfield">What TODO?</label><br>
+        <input type="text" id="TODOfield" name="TODOfield"><br>
+        <!-- <input type="submit" value='Submit' id="submitButton"> -->
+        <button id="submitButton">Add Item</button>
+    </form>
+    <div class="TODOpanel">
+        <div id="todoSection">
+            <h3>To DO</h3>
+            <div id="allToDos">
+
+            </div>
+        </div>
+        <div id="inProgressSection">
+            <h3>In Progress</h3>
+        </div>
+        <div id="completedSection">
+            <h3>Completed</h3>
+        </div>
+    </div>
+</body>
+
+<script type="text/javascript" src="./app.js"></script>
+
+</html>
