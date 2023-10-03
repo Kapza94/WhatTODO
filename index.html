@@ -4,31 +4,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
     <title>WhatTODO</title>
 </head>
 
 <body>
-    <h1>WhatTODO</h1>
-    <p>Keeping your priorities simple and effective.</p>
+    <div class="siteContainer">
+        <h1>WhatTODO</h1>
+        <p>Keeping your priorities simple and effective.</p>
 
-    <form id="formSubmit" onsubmit="addTODO(event)">
-        <label for="TODOfield">What TODO?</label><br>
-        <input type="text" id="TODOfield" name="TODOfield"><br>
-        <!-- <input type="submit" value='Submit' id="submitButton"> -->
-        <button id="submitButton">Add Item</button>
-    </form>
-    <div class="TODOpanel">
-        <div id="todoSection">
-            <h3>To DO</h3>
-            <div id="allToDos">
-
+        <form id="formSubmit" onsubmit="addTODO(event)">
+            <label for="TODOfield">What TODO?</label><br>
+            <input type="text" id="TODOfield" name="TODOfield"><br>
+            <!-- <input type="submit" value='Submit' id="submitButton"> -->
+            <button id="submitButton">Add Item</button>
+        </form>
+        <div class="TODOpanel">
+            <div id="todoSection">
+                <h3>To Do</h3>
+                <div id="allToDos">
+                </div>
             </div>
-        </div>
-        <div id="inProgressSection">
-            <h3>In Progress</h3>
-        </div>
-        <div id="completedSection">
-            <h3>Completed</h3>
+            <div id="inProgressSection">
+                <h3>In Progress</h3>
+                <div id="allInProgress"></div>
+            </div>
+            <div id="completedSection">
+                <h3>Completed</h3>
+                <div id="allCompleted"></div>
+            </div>
         </div>
     </div>
 </body>
