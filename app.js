@@ -10,6 +10,7 @@ let allToDos = document.getElementById('allToDos');
 let allInProgress = document.getElementById('allInProgress')
 let allCompleted = document.getElementById('allCompleted');
 
+
 let counter = 1;
 const addTODO = (event) => {
     event.preventDefault()
@@ -24,10 +25,10 @@ const addTODO = (event) => {
         `<div id= ${counter++} class= 'singlePItem'>
         <div>${inputField.value}</div> 
         <div class= 'buttonContainer'> 
-        <button onclick='TODO(event)' class='TODOItem'> ToDo </button>
-        <button onclick='inProgressTODO(event)' class='inProgressItem'>In Progress </button>
-        <button onclick='completedTODO(event)' class='completedItem'>Complete </button>
-        <button onclick='deleteTODO(event)' class='deleteSinglePItem'>delete </button>
+        <button onclick='TODO(event)' id='TODOItem' class='hidden'>ToDo</button>
+        <button onclick='inProgressTODO(event)' id='inProgressItem'>In Progress </button>
+        <button onclick='completedTODO(event)' id='completedItem' >Complete </button>
+        <button onclick='deleteTODO(event)' id='deleteSinglePItem'>delete </button>
         </div>
         </div>
         </div>`;
@@ -38,18 +39,33 @@ const addTODO = (event) => {
 
 const TODO = (event) => {
     allToDos.append(event.target.parentElement.parentElement);
+    let inProgressButton = document.getElementById('inProgressItem')
+    inProgressButton.classList.remove('hidden')
+    let toDoButton = document.getElementById('TODOItem')
+    toDoButton.classList.add('hidden')
+    let completedButton = document.getElementById('completedItem')
+    completedButton.classList.remove('hidden')
 }
 
 const inProgressTODO = (event) => {
     allInProgress.append(event.target.parentElement.parentElement);
-    // allToDos.classList.add('inProgressItemHide')
-    console.log(removeEvent);
+    let inProgressButton = document.getElementById('inProgressItem')
+    inProgressButton.classList.add('hidden')
+    let toDoButton = document.getElementById('TODOItem')
+    toDoButton.classList.remove('hidden')
+    let completedButton = document.getElementById('completedItem')
+    completedButton.classList.remove('hidden')
 }
 
 
 const completedTODO = (event) => {
     allCompleted.append(event.target.parentElement.parentElement);
-    console.log(allCompleted);
+    let inProgressButton = document.getElementById('inProgressItem')
+    inProgressButton.classList.remove('hidden')
+    let toDoButton = document.getElementById('TODOItem')
+    toDoButton.classList.remove('hidden')
+    let completedButton = document.getElementById('completedItem')
+    completedButton.classList.add('hidden')
 }
 
 const deleteTODO = (event) => {

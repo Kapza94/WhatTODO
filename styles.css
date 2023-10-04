@@ -19,10 +19,10 @@ body {
     justify-content: space-between;
 }
 
-.inProgressItemHide {
-    display: none;
+.inProgressItem {
+    display: block;
 }
 
-.inProgressItemShow {
-    display: block;
+.hidden {
+    display: none;
 }
