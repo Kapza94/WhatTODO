@@ -24,9 +24,10 @@ const addTODO = (event) => {
         `<div id= ${counter++} class= 'singlePItem'>
         <div>${inputField.value}</div> 
         <div class= 'buttonContainer'> 
-        <button onclick='deleteTODO(event)' class='deleteSinglePItem'>delete </button>
+        <button onclick='TODO(event)' class='TODOItem'> ToDo </button>
         <button onclick='inProgressTODO(event)' class='inProgressItem'>In Progress </button>
         <button onclick='completedTODO(event)' class='completedItem'>Complete </button>
+        <button onclick='deleteTODO(event)' class='deleteSinglePItem'>delete </button>
         </div>
         </div>
         </div>`;
@@ -34,24 +35,29 @@ const addTODO = (event) => {
     inputField.value = '';
 }
 
-const deleteTODO = (event) => {
-    event.target.parentElement.parentElement.remove()
+
+const TODO = (event) => {
+    allToDos.append(event.target.parentElement.parentElement);
 }
 
 const inProgressTODO = (event) => {
-    event.target.parentElement.parentElement.parentElement.remove();
     allInProgress.append(event.target.parentElement.parentElement);
-    console.log(allInProgress);
+    // allToDos.classList.add('inProgressItemHide')
+    console.log(removeEvent);
 }
 
 
 const completedTODO = (event) => {
-    event.target.parentElement.parentElement.remove();
     allCompleted.append(event.target.parentElement.parentElement);
     console.log(allCompleted);
 }
 
-//Item state issues. when i add an item. i cx
+const deleteTODO = (event) => {
+    event.target.parentElement.parentElement.remove()
+
+}
+
+
 
 submitButton.addEventListener('click', addTODO)
 

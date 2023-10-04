@@ -18,3 +18,11 @@ body {
     display: flex;
     justify-content: space-between;
 }
+
+.inProgressItemHide {
+    display: none;
+}
+
+.inProgressItemShow {
+    display: block;
+}
