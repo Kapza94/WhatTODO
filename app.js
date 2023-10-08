@@ -11,6 +11,7 @@ let allInProgress = document.getElementById('allInProgress')
 let allCompleted = document.getElementById('allCompleted');
 
 
+
 let counter = 1;
 const addTODO = (event) => {
     event.preventDefault()
@@ -25,10 +26,10 @@ const addTODO = (event) => {
         `<div id= ${counter++} class= 'singlePItem'>
         <div>${inputField.value}</div> 
         <div class= 'buttonContainer'> 
-        <button onclick='TODO(event)' id='TODOItem' class='hidden'>ToDo</button>
-        <button onclick='inProgressTODO(event)' id='inProgressItem'>In Progress </button>
-        <button onclick='completedTODO(event)' id='completedItem' >Complete </button>
-        <button onclick='deleteTODO(event)' id='deleteSinglePItem'>delete </button>
+        <button onclick='TODO(event)' class='TODOItem hidden'>ToDo</button>
+        <button onclick='inProgressTODO(event)' class='inProgressItem'>In Progress </button>
+        <button onclick='completedTODO(event)' class='completedItem' >Complete </button>
+        <button onclick='deleteTODO(event)' class='deleteSinglePItem'><img src = "./imgs/trash.svg" alt="trash" class= 'trash' /> </button>
         </div>
         </div>
         </div>`;
@@ -36,41 +37,57 @@ const addTODO = (event) => {
     inputField.value = '';
 }
 
+let ToDoArr = document.getElementsByClassName('singlePItem');
 
 const TODO = (event) => {
     allToDos.append(event.target.parentElement.parentElement);
-    let inProgressButton = document.getElementById('inProgressItem')
-    inProgressButton.classList.remove('hidden')
-    let toDoButton = document.getElementById('TODOItem')
-    toDoButton.classList.add('hidden')
-    let completedButton = document.getElementById('completedItem')
-    completedButton.classList.remove('hidden')
+
+    for (let i = 0; i < ToDoArr.length; i++) {
+        if (ToDoArr[i].parentElement.classList.contains('allToDos')) {
+            ToDoArr[i].children[1].children[0].classList.add('hidden')
+            ToDoArr[i].children[1].children[1].classList.remove('hidden')
+            ToDoArr[i].children[1].children[2].classList.remove('hidden')
+        }
+        console.log(ToDoArr[i].children[1].children[0]);
+
+    }
 }
 
 const inProgressTODO = (event) => {
     allInProgress.append(event.target.parentElement.parentElement);
-    let inProgressButton = document.getElementById('inProgressItem')
-    inProgressButton.classList.add('hidden')
-    let toDoButton = document.getElementById('TODOItem')
-    toDoButton.classList.remove('hidden')
-    let completedButton = document.getElementById('completedItem')
-    completedButton.classList.remove('hidden')
+
+    for (let i = 0; i < ToDoArr.length; i++) {
+        if (ToDoArr[i].parentElement.classList.contains('allInProgress')) {
+            ToDoArr[i].children[1].children[0].classList.remove('hidden')
+            ToDoArr[i].children[1].children[1].classList.add('hidden')
+            ToDoArr[i].children[1].children[2].classList.remove('hidden')
+            ToDoArr[i].classList.remove('completed');
+            ToDoArr[i].classList.add('inProgress');
+        }
+        console.log(ToDoArr[i].children[1].children[0]);
+
+    }
 }
 
 
 const completedTODO = (event) => {
     allCompleted.append(event.target.parentElement.parentElement);
-    let inProgressButton = document.getElementById('inProgressItem')
-    inProgressButton.classList.remove('hidden')
-    let toDoButton = document.getElementById('TODOItem')
-    toDoButton.classList.remove('hidden')
-    let completedButton = document.getElementById('completedItem')
-    completedButton.classList.add('hidden')
+
+    for (let i = 0; i < ToDoArr.length; i++) {
+        if (ToDoArr[i].parentElement.classList.contains('allCompleted')) {
+            ToDoArr[i].children[1].children[0].classList.remove('hidden')
+            ToDoArr[i].children[1].children[1].classList.remove('hidden')
+            ToDoArr[i].children[1].children[2].classList.add('hidden')
+            ToDoArr[i].classList.add('completed');
+            ToDoArr[i].classList.remove('inProgress');
+        }
+        console.log(ToDoArr[i].children[1].children[0]);
+
+    }
 }
 
 const deleteTODO = (event) => {
-    event.target.parentElement.parentElement.remove()
-
+    event.currentTarget.parentElement.parentElement.remove()
 }
 
 
@@ -81,6 +98,3 @@ submitButton.addEventListener('click', addTODO)
 
 
 
-let toDoArr = [];
-let inProgressArr = [];
-let completedArr = [];

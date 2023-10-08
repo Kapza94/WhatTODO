@@ -16,24 +16,26 @@
         <form id="formSubmit" onsubmit="addTODO(event)">
             <label for="TODOfield">What TODO?</label><br>
             <input type="text" id="TODOfield" name="TODOfield"><br>
-            <!-- <input type="submit" value='Submit' id="submitButton"> -->
             <button id="submitButton">Add Item</button>
         </form>
         <div class="TODOpanel">
-            <div id="todoSection">
-                <h3>To Do</h3>
-                <div id="allToDos"></div>
+            <div class="left-pane">
+                <div id="todoSection">
+                    <h3>To Do</h3>
+                    <div id="allToDos" class="allToDos"></div>
+                </div>
+                <div id="inProgressSection">
+                    <h3>In Progress</h3>
+                    <div id="allInProgress" class="allInProgress"></div>
+                </div>
             </div>
-            <div id="inProgressSection">
-                <h3>In Progress</h3>
-                <div id="allInProgress" class="allInProgress"></div>
-            </div>
-            <div id="completedSection">
-                <h3>Completed</h3>
-                <div id="allCompleted"></div>
+            <div class="right-pane">
+                <div id="completedSection">
+                    <h3>Completed</h3>
+                    <div id="allCompleted" class="allCompleted"></div>
+                </div>
             </div>
         </div>
-    </div>
 </body>
 
 <script type="text/javascript" src="./app.js"></script>
