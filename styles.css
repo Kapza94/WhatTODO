@@ -26,6 +26,10 @@ body {
     flex-direction: column;
     height: 50%;
     width: 45%;
+    background-color: rgba(32, 74, 90, 0.3);
+    border-radius: 10px;
+    margin: 5px;
+    padding: 2rem;
 }
 
 .right-pane {
@@ -33,6 +37,10 @@ body {
     flex-direction: column;
     height: 50%;
     width: 45%;
+    background-color: rgba(32, 74, 90, 0.3);
+    border-radius: 10px;
+    margin: 5px;
+    padding: 2rem;
 }
 
 .siteContainer {
@@ -49,7 +57,7 @@ body {
     justify-content: space-between;
 }
 
-.inProgressItem {
+.inProgressButton {
     display: block;
 }
 
@@ -66,14 +74,81 @@ body {
     height: 10px;
 }
 
-.completed {
-    background-color: green;
+.buttonContainer {
+    width: 40%;
+    display: flex;
+    justify-content: space-evenly;
 }
 
-.completed .buttonContainer .TODOItem {
+.completedItem {
     background-color: grey;
+    border-radius: 10px;
+    padding: 0.5rem;
 }
 
-.inProgress .buttonContainer .TODOItem {
-    background-color: purple;
+.inProgressItem {
+    background-color: grey;
+    border-radius: 10px;
+    padding: 0.5rem;
+}
+
+.ToDoItem {
+    background-color: grey;
+    border-radius: 10px;
+    padding: 0.5rem;
+}
+
+.allToDos,
+.allInProgress,
+.allCompleted {
+    background-color: #8BA79A;
+    padding: 3rem;
+    border-radius: 10px;
+}
+
+
+/* .ToDoButton .buttonContainer .InProgressItem {
+    background-color: #60495A;
+} */
+.ToDoItem .buttonContainer .inProgressButton {
+    background-color: #F0A868;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.completedItem .buttonContainer .inProgressButton {
+    background-color: #F0A868;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.inProgressItem .buttonContainer .ToDoButton {
+    background-color: grey;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.completedItem .buttonContainer .ToDoButton {
+    background-color: grey;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.ToDoItem .buttonContainer .completedButton {
+    background-color: #739686;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.inProgressItem .buttonContainer .completedButton {
+    background-color: #739686;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.ToDoItem .buttonContainer .inProgressButton:hover,
+.ToDoButton:hover,
+.completedButton:hover {
+    box-shadow: rgba(255, 255, 255, .2) 0 3px 15px inset, rgba(0, 0, 0, .1) 0 3px 5px, rgba(0, 0, 0, .1) 0 10px 13px;
+    transform: scale(1.05);
 }

@@ -23,12 +23,12 @@ const addTODO = (event) => {
     }
     let addP = document.createElement('p');
     addP.innerHTML =
-        `<div id= ${counter++} class= 'singlePItem'>
+        `<div id= ${counter++} class= 'singlePItem ToDoItem'>
         <div>${inputField.value}</div> 
         <div class= 'buttonContainer'> 
-        <button onclick='TODO(event)' class='TODOItem hidden'>ToDo</button>
-        <button onclick='inProgressTODO(event)' class='inProgressItem'>In Progress </button>
-        <button onclick='completedTODO(event)' class='completedItem' >Complete </button>
+        <button onclick='ToDo(event)' class='ToDoButton hidden'>ToDo</button>
+        <button onclick='inProgressTODO(event)' class='inProgressButton'>In Progress </button>
+        <button onclick='completedTODO(event)' class='completedButton' >Complete </button>
         <button onclick='deleteTODO(event)' class='deleteSinglePItem'><img src = "./imgs/trash.svg" alt="trash" class= 'trash' /> </button>
         </div>
         </div>
@@ -39,7 +39,7 @@ const addTODO = (event) => {
 
 let ToDoArr = document.getElementsByClassName('singlePItem');
 
-const TODO = (event) => {
+const ToDo = (event) => {
     allToDos.append(event.target.parentElement.parentElement);
 
     for (let i = 0; i < ToDoArr.length; i++) {
@@ -47,9 +47,10 @@ const TODO = (event) => {
             ToDoArr[i].children[1].children[0].classList.add('hidden')
             ToDoArr[i].children[1].children[1].classList.remove('hidden')
             ToDoArr[i].children[1].children[2].classList.remove('hidden')
+            ToDoArr[i].classList.add('ToDoItem');
+            ToDoArr[i].classList.remove('completedItem');
+            ToDoArr[i].classList.remove('inProgressItem');
         }
-        console.log(ToDoArr[i].children[1].children[0]);
-
     }
 }
 
@@ -61,10 +62,10 @@ const inProgressTODO = (event) => {
             ToDoArr[i].children[1].children[0].classList.remove('hidden')
             ToDoArr[i].children[1].children[1].classList.add('hidden')
             ToDoArr[i].children[1].children[2].classList.remove('hidden')
-            ToDoArr[i].classList.remove('completed');
-            ToDoArr[i].classList.add('inProgress');
+            ToDoArr[i].classList.remove('completedItem');
+            ToDoArr[i].classList.add('inProgressItem');
+            ToDoArr[i].classList.remove('ToDoItem');
         }
-        console.log(ToDoArr[i].children[1].children[0]);
 
     }
 }
@@ -78,11 +79,10 @@ const completedTODO = (event) => {
             ToDoArr[i].children[1].children[0].classList.remove('hidden')
             ToDoArr[i].children[1].children[1].classList.remove('hidden')
             ToDoArr[i].children[1].children[2].classList.add('hidden')
-            ToDoArr[i].classList.add('completed');
-            ToDoArr[i].classList.remove('inProgress');
+            ToDoArr[i].classList.add('completedItem');
+            ToDoArr[i].classList.remove('inProgressItem');
+            ToDoArr[i].classList.remove('ToDoItem');
         }
-        console.log(ToDoArr[i].children[1].children[0]);
-
     }
 }
 
